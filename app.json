@@ -1,0 +1,12 @@
+{
+  "name": "nateli",
+  "displayName": "nateli",
+  "expo": {
+    "name": "nateli",
+    "slug": "nateli",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
