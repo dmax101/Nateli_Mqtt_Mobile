@@ -27,12 +27,12 @@ export default function App() {
   }, []);
 
   function letsRoll() {
-    ToastExample.show("Carregando...!");
+    ToastExample.show("Sofia");
   }
 
   return (
     <View style={styles.container}>
-      <Text>Top!!!</Text>
+      <Text>TOP!!!</Text>
       <Button
         title="Não me Pressione!"
         onPress={ letsRoll }
