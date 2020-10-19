@@ -1,17 +1,17 @@
 import React from 'react';
 import config from '../configs';
+import moment from 'moment';
 
 function getDate() {
-    const dateNow = new Date();
-    const { locale } = config;
 
+    moment().locale(config.locale);
+    
     const completeDate = {
-        date: Number(dateNow.toLocaleDateString(locale, { day: 'numeric' })),
-        month: String(dateNow.toLocaleDateString(locale, { month: 'long' })),
-        year: Number(dateNow.toLocaleDateString(locale, { year: 'numeric' })),
-        weekDay: String(dateNow.toLocaleDateString(locale, { weekday: 'long' })),
+        date: String(moment().format('DD')),
+        month: String(moment().format('MMMM')),
+        year: String(moment().format('YYYY')),
+        weekDay: String(moment().format('dddd')),
     }
-
     return completeDate;
 }
 

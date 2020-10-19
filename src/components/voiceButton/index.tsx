@@ -14,8 +14,7 @@ import Speak from '../../services/speakService';
 import api from '../../services/api';
 import config from '../../configs';
 import analysis from '../../services/analysis';
-
-import mqttSend from '../../services/mqttConnector';
+import { RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AAC, RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AMR_NB, RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_MPEG_4, RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_THREE_GPP } from 'expo-av/build/Audio/Recording';
 
 function VoiceButton() {
 
@@ -33,11 +32,11 @@ function VoiceButton() {
 
     const recordingSettings = {
         android: {
-            extension: '.m4a',
-            outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_MPEG_4,
-            audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AAC,
-            sampleRate: 44100,
-            numberOfChannels: 2,
+            extension: '.3gpp',
+            outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_AMR_WB,
+            audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AMR_WB,
+            sampleRate: 16000,
+            numberOfChannels: 1,
             bitRate: 128000,
         },
         ios: {
@@ -114,10 +113,10 @@ function VoiceButton() {
                                 .then(async (response) => {
                                     const params = `/message?v=${config.witApi.v}&q=${response}`;
                                     await api.get(params)
-                                        .then((response: { data: any; }) => {
+                                        .then((response) => {
                                             analysis(response.data);
                                         })
-                                        .catch((error: any) => {
+                                        .catch((error) => {
                                             console.log(error);
                                         });
                                 })
@@ -148,13 +147,14 @@ function VoiceButton() {
         if(verifyMicrophonePermission()) {
             startRecording();
         } else {
-            info('permitions', 'Ocorreu algum erro ao solicitar permissão para uso do microfone')
+            info('permitions', 'Ouve algum erro ao solicitar permissão para uso do microfone')
         }
     }
     
     async function handleVoiceCommandOff() {
         info('event', 'Button pressed off');
-        mqttSend("ligar", "ventilador")
+        //await mqttService('kfjskwje332', 'Danilo');
+        //await mqttTao('kfjskwje332', 'Tao');
     }
 
     return (

@@ -8,7 +8,8 @@ function analysis(content: any) {
     info('wit api', `reciving data from wit api: ${JSON.stringify(content)}`)
 
     if (content['intents'] == '') {
-        Speak('Não entendi. Por favor repita a pergunta');
+        //Speak('Não entendi. Por favor repita a pergunta');
+        Speak('Nops');
     } else if (content['intents'][0]['name'] == 'greeting') {
         Speak('Olá, como posso ajudar?');
     } else if (content['intents'][0]['name'] == 'location_get') {

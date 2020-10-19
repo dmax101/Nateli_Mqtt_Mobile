@@ -14,15 +14,18 @@ async function speechToText(file: string) {
     await googleApi.post(destination,
         {
         "config": {
-                "encoding": "LINEAR16",
+                "encoding": "AMR_WB",
                 "sampleRateHertz": 16000,
-                "languageCode": "pt-br"
+                "languageCode": "pt-br",
+                "enableSeparateRecognitionPerChannel": true,
         },
             "audio": {
                 "content": file,
             }
     })
     .then(async (resp) => {
+        console.log(JSON.stringify(resp));
+        
         info('google api', `receiving data: ${JSON.stringify(resp.data)}`);
         
         message = JSON.stringify(resp.data['results'][0]['alternatives'][0]['transcript']);
