@@ -2,6 +2,7 @@ import React from 'react';
 import Speak from './speakService';
 import info from '../utils/info';
 import mqttSend from '../services/mqttConnector';
+import config from "../configs";
 
 function analysis(content: any) {
 
@@ -27,11 +28,41 @@ function analysis(content: any) {
                     Speak('Em qual lugar?');
                 } else {
                     if (content['traits']['wit$on_off'][0]['value'] == 'on') {
-                        Speak(content['entities']['wit$location:location'][0]['value'] + ': ligando ' + content['entities']['device:device'][0]['value']);
-                        mqttSend("1", content['entities']['wit$location:location'][0]['value'] + '/' + content['entities']['device:device'][0]['value']);
+                        var location = content['entities']['wit$location:location'][0]['value'].slice(0, -1);
+                        var device = content['entities']['device:device'][0]['value'];
+                        var params = "0000";
+
+                        if ((!(location in config.locations)) || (!(device in config.devices))) {
+                            Speak("Dispositivo ou localização inválido");
+                        } else {
+                            
+                            console.log(location);
+                            console.log(device);
+                            
+                            var message = '1' + config.locations[location] + config.devices[device] + params;
+                            Speak(location + ': ligando ' + device);
+                            mqttSend("1", location + '/' + device);
+
+                            mqttSend(message, "main");
+                        }
                     } else {
-                        Speak(content['entities']['wit$location:location'][0]['value'] + ': desligando ' + content['entities']['device:device'][0]['value'])
-                        mqttSend("0", content['entities']['wit$location:location'][0]['value'] + '/' + content['entities']['device:device'][0]['value']);
+                        var location = content['entities']['wit$location:location'][0]['value'].slice(0, -1);
+                        var device = content['entities']['device:device'][0]['value'];
+                        var params = "0000";
+
+                        if ((!(location in config.locations)) || (!(device in config.devices))) {
+                            Speak("Dispositivo ou localização inválido");
+                        } else {
+                            
+                            console.log(location);
+                            console.log(device);
+                            
+                            var message = '0' + config.locations[location] + config.devices[device] + params;
+                            Speak(location + ': desligando ' + device);
+                            mqttSend("0", location + '/' + device);
+
+                            mqttSend(message, "main");
+                        }
                     }
                 } 
             }

@@ -23,6 +23,17 @@ const config = {
         user: 'csilab',
         password: 'WhoAmI#2020',
         protocol: 'ssl'
+    },
+    devices: {
+        luz: '0001',
+        som: '0010',
+        tv: '0011'
+    },
+    locations: {
+        quarto: '0001',
+        sala: '0010',
+        cozinha: '0011',
+        garagem: '0100'
     }
 }
 
