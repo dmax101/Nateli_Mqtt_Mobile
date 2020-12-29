@@ -63,4 +63,4 @@ buck-out/
 web-build/
 
 # Configs
-src/configs/index.ts
+src/configs/*
