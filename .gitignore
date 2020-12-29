@@ -63,4 +63,4 @@ buck-out/
 web-build/
 
 # Configs
-nateli_mqtt_mobile/src/configs/*
+./src/configs
