@@ -38,7 +38,7 @@ export default function App() {
       }
     }
     function MQTTConnectionTest() {
-      MQTTService("Teste de Conexão","Canal Padrão");
+      MQTTService("Teste de Conexão","Status");
     }
 
     MQTTConnectionTest()

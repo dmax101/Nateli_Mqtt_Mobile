@@ -62,5 +62,5 @@ buck-out/
 .expo/*
 web-build/
 
-# Configs
-/src/configs/
+# Credentials
+/src/credentials/

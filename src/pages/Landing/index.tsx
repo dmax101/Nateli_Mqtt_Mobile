@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import { BlurView } from 'expo-blur';
 
@@ -12,21 +12,34 @@ import getDate from "../../utils/getDate";
 import cloudIcon from '../../../assets/icon/cloudIcon.png';
 import styles from './styles';
 import info from '../../utils/info';
+import getWeather from '../../utils/getWeather';
 
 function Landing() {
 
-    info('system', 'loading landing page')
+    const [weatherTxt, setWeatherTxt] = useState('aguarde...');
+
+    info('system', 'loading landing page');
+
+    getWeather().then(data => {
+        let city = JSON.stringify(data.name).slice(1,-1);
+        let temp = Math.round(Number(JSON.stringify(data.main.temp)) - 273.15);
+        let desc = JSON.stringify(data.weather[0].description).slice(1,-1);
+        setWeatherTxt(`${city} - ${temp}° - ${desc}`);
+    }).catch(e => {
+        console.log(JSON.stringify(e));
+        
+    });
 
     const { date, month, weekDay } = getDate();
 
     return (
         <View style={styles.container}>
-            
+
             <BlurView intensity={80} style={styles.mainCard}>
                 <View style={styles.header}>
                     <View style={styles.right}>
-                        <Text style={styles.greetings}>{ getGreeting() }</Text>
-                        <Text style={styles.name}>{ config.name }</Text>
+                        <Text style={styles.greetings}>{getGreeting()}</Text>
+                        <Text style={styles.name}>{config.name}</Text>
                         <Text style={styles.serverStatusText}>Online</Text>
                     </View>
                     <View style={styles.left}>
@@ -38,7 +51,7 @@ function Landing() {
 
                 <BlurView intensity={80} style={styles.weatherBar}>
                     <Image source={cloudIcon} style={styles.cloudIcon} />
-                    <Text style={styles.weatherText}>16º, Pouco Nublado - Pouso Alegre - Feriado</Text>
+                    <Text style={styles.weatherText}>{weatherTxt}</Text>
                 </BlurView>
 
                 <View style={styles.statusBlock}>

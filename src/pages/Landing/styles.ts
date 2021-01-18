@@ -21,12 +21,11 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: "center",
         width: "100%",
     },
 
     right: {
-        marginTop: 15,
+        marginTop: 30,
         alignContent: "space-around",
         alignItems: "flex-start",
     },
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
         fontFamily: "NotoSansJP_400Regular",
         fontSize: 35,
         textAlign: "center",
+        marginTop: -30,
     },
 
     serverStatusText: {
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
         fontFamily: "NotoSansJP_400Regular",
         fontSize: 15,
         textAlign: "center",
+        marginTop: -35,
     },
 
     left: {
-        marginTop: -10,
-        marginBottom: 10,
+        marginTop: -65,
         alignContent: "flex-end",
         alignItems: "flex-end",
     },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     month: {
         color: "white",
         fontFamily: "NotoSansJP_700Bold",
-        marginTop: -20,
+        marginTop: -100,
         fontSize: 20,
         textAlign: "center",
     },
@@ -78,16 +78,16 @@ const styles = StyleSheet.create({
         color: "white",
         fontFamily: "NotoSansJP_400Regular",
         fontSize: 15,
-        marginTop: 0,
+        marginTop: -30,
         textAlign: "center",
     },
 
     weatherBar: {
         backgroundColor: "#FF0000",
         flexDirection: "row",
-        padding: 10,
+        padding: 2,
         borderRadius: 8,
-        marginTop: 10,
+        marginTop: 0    ,
         width: "100%",
         alignContent: "center",
         alignItems: "center",
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     },
 
     weatherText: {
-        color: "white",
-        fontFamily: "NotoSansJP_400Regular",
+        color: "#FFFFFF",
+        fontFamily: "NotoSansJP_700Bold",
         fontSize: 12,
         textAlign: "center",
     },
@@ -128,18 +128,17 @@ const styles = StyleSheet.create({
     bottonBarGroup: {
         alignContent: "center",
         justifyContent: "center",
+        
     },
 
     bottonBar: {
         backgroundColor: "#0C69E2",
-        width: "100%",
         alignItems: "center",
         minHeight: 50,
         borderRadius: 10,
         marginTop: 20,
         paddingHorizontal: 20,
     }
-
 })
 
 export default styles;

@@ -12,12 +12,12 @@ function getGreeting() {
         } else {
             greeting = 'Boa noite,';
         }
-        info('greetings', `Getting greetins ${greeting}`)
+        info('greetings', `getting greetins ${greeting}`)
         
         return greeting;
 
     } catch (error) {
-        info('greetings', "Can't get greeting", error)
+        info('greetings', "can't get greeting", error)
         
         return "error"
     }

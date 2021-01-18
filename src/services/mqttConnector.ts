@@ -1,12 +1,12 @@
 import { NativeModules } from 'react-native';
-import config from '../configs';
+import credentials from '../credentials';
 
 //module.exports = NativeModules.MeuMQTT;
 
 function sendMqttMessage(msg: String, tpc: String) {
     const mqtt = NativeModules.MeuMQTT;
    
-    const mqttConfig = config.mqttApi;
+    const mqttConfig = credentials.mqttApi;
     const host = mqttConfig.host;
     const port = mqttConfig.port;
     const user = mqttConfig.user;
