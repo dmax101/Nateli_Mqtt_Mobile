@@ -16,7 +16,7 @@ import getWeather from '../../utils/getWeather';
 
 function Landing() {
 
-    const [weatherTxt, setWeatherTxt] = useState('aguarde...');
+    const [weatherTxt, setWeatherTxt] = useState('atualizando...');
 
     info('system', 'loading landing page');
 
@@ -56,7 +56,7 @@ function Landing() {
 
                 <View style={styles.statusBlock}>
                     <Text style={styles.statusTextLabel}>Status</Text>
-                    <Text style={styles.statusTextDisplay}>Ouvindo...</Text>
+                    <Text style={styles.statusTextDisplay}>Aguardando...</Text>
                 </View>
 
             </BlurView>

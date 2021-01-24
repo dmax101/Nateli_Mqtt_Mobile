@@ -1,0 +1,8 @@
+{
+    "name": "check_lights",
+    "entities": [
+        "wit$datetime:datetime",
+        "wit$location:location",
+        "wit$message_body:message_body"
+    ]
+}

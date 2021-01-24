@@ -1,0 +1,10 @@
+{
+    "name": "action",
+    "entities": [
+        "device:device",
+        "wit$location:location",
+        "wit$message_body:message_body",
+        "wit$quantity:quantity",
+        "wit$temperature:temperature"
+    ]
+}

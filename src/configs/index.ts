@@ -30,15 +30,28 @@ const config = {
         }
     },
     devices: {
-        luz: '0001',
+        lampada: {
+            0: '00000000',
+            1: '00000001',
+            2: '00000010',
+            3: '00000011',
+            4: '00000100',
+            5: '00000101',
+            6: '00000110',
+        },
         som: '0010',
-        tv: '0011'
+        tv: '0011',
+        'ar_condicionado': {
+            unit: 'celcius',
+            'standard_temperature': 23,
+        }
     },
     locations: {
         quarto: '0001',
         sala: '0010',
         cozinha: '0011',
-        garagem: '0100'
+        garagem: '0100',
+        smarthouse: '0101'
     }
 }
 

@@ -4,6 +4,7 @@ import info from '../utils/info';
 import mqttSend from '../services/mqttConnector';
 import config from "../configs";
 import command from './modules/command';
+import actions from './modules/actions';
 
 function analysis(content: any) {
 
@@ -13,30 +14,27 @@ function analysis(content: any) {
     const entities = content['entities'];
     const traits = content['traits'];
 
-    console.log('------');
-    console.log('Intents: ' + JSON.stringify(intents));
-    console.log('Entities: ' + JSON.stringify(entities));
-    console.log('Traits: ' + JSON.stringify(traits));
-    console.log('------');
-
-
     if (intents.length === 0) {
         //Speak('Não entendi. Por favor repita a pergunta');
         Speak('Nops');
     } else {
         switch (intents[0]['name']) {
             case 'chat':
+                info('analysis', 'chat');
                 Speak('Estou aprendendo ainda! Logo irei conversar com você!')
                 break;
             case 'check_lights':
+                info('check_lights', 'checking lights');
                 Speak('Checando luzes')
                 command();
                 break;
             case 'check_temperature':
+                info('check_temperature', 'checking temperature');
                 Speak('Checando a temperatura')
                 break;
             case 'action':
-                
+                info('actions', 'performing action');
+                actions(intents, entities, traits);
                 break;
             default:
                 break;

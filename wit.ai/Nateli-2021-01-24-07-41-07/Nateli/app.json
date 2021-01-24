@@ -1,0 +1,7 @@
+{
+    "version": 20200513,
+    "zip-command": "zip Nateli.zip Nateli\/app.json Nateli\/entities\/*.json Nateli\/intents\/*.json Nateli\/traits\/*.json Nateli\/utterances\/*.json",
+    "name": "Nateli",
+    "lang": "pt",
+    "timezone": "Brazil\/East"
+}

@@ -1,0 +1,134 @@
+{
+    "name": "device",
+    "roles": [
+        "device"
+    ],
+    "lookups": [
+        "free-text",
+        "keywords"
+    ],
+    "keywords": [
+        {
+            "keyword": "ar-condicionado",
+            "synonyms": [
+                "ar",
+                "ar condicioando",
+                "ar condicionado",
+                "ar-condicionado"
+            ]
+        },
+        {
+            "keyword": "camera",
+            "synonyms": [
+                "camera",
+                "c\u00e2mera"
+            ]
+        },
+        {
+            "keyword": "cortina",
+            "synonyms": [
+                "cortina"
+            ]
+        },
+        {
+            "keyword": "lustres",
+            "synonyms": [
+                "lustres"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada",
+            "synonyms": [
+                "lampada",
+                "luz",
+                "l\u00e2mpada"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada 1",
+            "synonyms": [
+                "lampada 1",
+                "lampada um",
+                "luz 1",
+                "luz um",
+                "l\u00e2mpada",
+                "l\u00e2mpada 1",
+                "l\u00e2mpada um"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada 2",
+            "synonyms": [
+                "lampada 2",
+                "lampada dois",
+                "luz 2",
+                "luz dois",
+                "l\u00e2mpada 2",
+                "l\u00e2mpada dois"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada 3",
+            "synonyms": [
+                "lampada 3",
+                "lampada tres",
+                "lampada tr\u00eas",
+                "luz 3",
+                "luz tres",
+                "luz tr\u00eas",
+                "l\u00e2mpada 3",
+                "l\u00e2mpada tres",
+                "l\u00e2mpada tr\u00eas",
+                "l\u00e2mpadas 3"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada 4",
+            "synonyms": [
+                "lampada 4",
+                "lampada quatro",
+                "luz 4",
+                "luz quatro",
+                "l\u00e2mpada 4",
+                "l\u00e2mpada quatro"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada 5",
+            "synonyms": [
+                "lampada 5",
+                "lampada cinco",
+                "luz 5",
+                "luz cinco",
+                "l\u00e2mpada 5",
+                "l\u00e2mpada cinco"
+            ]
+        },
+        {
+            "keyword": "l\u00e2mpada 6",
+            "synonyms": [
+                "lampada 6",
+                "lampada seis",
+                "luz 6",
+                "luz seis",
+                "l\u00e2mpada 6",
+                "l\u00e2mpada seis",
+                "l\u00e2mpadas 6"
+            ]
+        },
+        {
+            "keyword": "som",
+            "synonyms": [
+                "som"
+            ]
+        },
+        {
+            "keyword": "tv",
+            "synonyms": [
+                "tela",
+                "televisao",
+                "tv"
+            ]
+        }
+    ]
+}

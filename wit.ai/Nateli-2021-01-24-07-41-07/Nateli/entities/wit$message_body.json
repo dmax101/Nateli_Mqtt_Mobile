@@ -1,0 +1,6 @@
+{
+    "name": "wit$message_body",
+    "roles": [
+        "message_body"
+    ]
+}
