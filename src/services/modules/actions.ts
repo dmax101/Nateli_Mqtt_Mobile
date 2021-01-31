@@ -6,6 +6,7 @@ import mqttSend from '../mqttConnector';
 import arCondicionado from './devices/arCondicionado';
 import cortina from './devices/cortina';
 import lampadas from './devices/lampadas';
+import rmAccents from 'remove-accents';
 
 function actions(intents: Object, entities: Object, traits: Object) {
     info('actions', 'receiving parameters')
@@ -21,13 +22,13 @@ function actions(intents: Object, entities: Object, traits: Object) {
     if ('device:device' in entities) {        
         if (entities['device:device'].length > 1) {            
             if('group' in traits) {
-                deviceName = traits['group'][0].value;
+                deviceName = rmAccents(traits['group'][0].value);
             } else {
                 Speak('Erro!');
             }
             
         } else {
-            deviceName = entities['device:device'][0].value;
+            deviceName = rmAccents(entities['device:device'][0].value.split(' ')[0]);
         }
     } else {
         info('actions', 'no device found')
@@ -44,6 +45,8 @@ function actions(intents: Object, entities: Object, traits: Object) {
             cortina(entities, traits);
             break;
         case 'lampada':
+            console.log('lampidadadasadada');
+            
             lampadas(entities, traits);
             break;
 

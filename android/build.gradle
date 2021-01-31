@@ -1,5 +1,32 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+
+//signingConfigs {
+//  release {
+//    storeFile file('production_key.keystore')
+//    storePassword System.console().readLine("\nKeystore password:")
+//    keyAlias System.console().readLine("\nAlias: ")
+//    keyPassword System.console().readLine("\nAlias password: ")
+//   }
+//}
+
+//signingConfigs {
+//    release {
+//        storeFile file('production_key.keystore')
+//        storePassword 'Dm@150284'
+//        keyAlias 'production_key'
+//        keyPassword 'Dm@150284'
+//    }
+//}
+//
+//buildTypes {
+//        release {
+//            minifyEnabled enableProguardInReleaseBuilds
+//            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+//            signingConfig signingConfigs.release
+//        }
+//}
+
 buildscript {
     ext {
         buildToolsVersion = "29.0.2"

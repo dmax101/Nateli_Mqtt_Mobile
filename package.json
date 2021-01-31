@@ -6,7 +6,8 @@
     "ios": "react-native run-ios",
     "web": "expo start --web",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "production": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/"
   },
   "dependencies": {
     "@expo-google-fonts/noto-sans-jp": "^0.1.0",
@@ -43,6 +44,7 @@
     "react-native-web": "~0.13.12",
     "react-native-websocket": "^1.0.2",
     "react-native-websockets": "^1.0.8",
+    "remove-accents": "^0.4.2",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
