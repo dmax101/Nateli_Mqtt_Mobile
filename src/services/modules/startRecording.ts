@@ -64,6 +64,10 @@ async function startRecording() {
                             .then(async (response) => {
                                 if (response != '') {
                                     const params = `/message?v=${credentials.witApi.v}&q=${response}`;
+                                    console.log('----');
+                                    console.log(params);
+                                    console.log('----');
+                                    
                                     await api.get(params)
                                         .then((response) => {
                                             analysis(response.data);

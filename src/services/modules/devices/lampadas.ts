@@ -3,6 +3,7 @@ import config from '../../../configs';
 import info from '../../../utils/info';
 import Speak from '../../speakService';
 import mqttSend from '../../mqttConnector';
+import rmAccents from 'remove-accents';
 
 function lampadas(entities:Object, traits:Object,) {
 
@@ -25,7 +26,7 @@ function lampadas(entities:Object, traits:Object,) {
                     device.map(name => {
                         Speak(`Ligando ${name}`);
                         setTimeout(async () => {
-                            await mqttSend(name.split(' ')[1], 'smarthouse/lampligar');
+                            mqttSend(name.split(' ')[1], 'smarthouse/lampligar');
                         }, timeout);
                         return info('lampadas', name)
                     })
@@ -34,8 +35,19 @@ function lampadas(entities:Object, traits:Object,) {
                         Speak(`Ligando ${device}`);
                         mqttSend(device.split(' ')[1], 'smarthouse/lampligar');
                     } else {
-                        Speak(`Ligando ${device.split(' ')[0]}`);
-                        mqttSend(device.split(' ')[0], 'smarthouse/lampligar');
+                        if (rmAccents(device.split(' ')[0]) == 'lampadas') {
+                            const deviceArray = Object.keys(config.devices.lampada);
+
+                            Speak('Ligando todas as lâmpadas');
+                            deviceArray.map(name => {
+                                setTimeout(() => {
+                                    mqttSend(name, 'smarthouse/lampligar');
+                                }, timeout);
+                            })
+                        } else {
+                            Speak(`Ligando ${device.split(' ')[0]}`);
+                            mqttSend(device.split(' ')[0], 'smarthouse/lampligar');
+                        }
                     }
                 }
                 break;
@@ -49,11 +61,17 @@ function lampadas(entities:Object, traits:Object,) {
                             return info('lampadas', name)
                         })
                     } else {
-                        if (device.split(' ').length > 1) {
-                            Speak(`Desligando ${device}`);
-                            mqttSend(device.split(' ')[1], 'smarthouse/lampdesligar');
+                        if (rmAccents(device.split(' ')[0]) == 'lampadas') {
+                            const deviceArray = Object.keys(config.devices.lampada);
+
+                            Speak('Desligando todas as lâmpadas');
+                            deviceArray.map(name => {
+                                setTimeout(() => {
+                                    mqttSend(name, 'smarthouse/lampdesligar');
+                                }, timeout);
+                            })
                         } else {
-                            Speak(`Desligando ${device.split(' ')[0]}`);
+                            Speak(`Ligando ${device.split(' ')[0]}`);
                             mqttSend(device.split(' ')[0], 'smarthouse/lampdesligar');
                         }
                     }
