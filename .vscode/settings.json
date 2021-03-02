@@ -1,0 +1,10 @@
+{
+    "vsmqtt.brokerProfiles": [
+        {
+            "name": "Inatel CSI&IOT Lab",
+            "address": "csilab-broker.inatel.br",
+            "port": 8883,
+            "clientID": "nateli_client"
+        }
+    ]
+}

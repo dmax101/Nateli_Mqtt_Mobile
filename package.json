@@ -14,6 +14,7 @@
     "@expo-google-fonts/open-sans-condensed": "^0.1.0",
     "@react-native-community/async-storage": "~1.12.0",
     "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/netinfo": "^6.0.0",
     "@types/expo": "^33.0.1",
     "@types/invariant": "^2.2.33",
     "@types/node": "^14.11.2",
@@ -54,6 +55,7 @@
     "@types/react-native": "^0.63.25",
     "babel-jest": "~25.2.6",
     "jest": "~25.2.6",
+    "jetifier": "^1.6.6",
     "react-test-renderer": "~16.13.1",
     "typescript": "^4.0.3"
   },

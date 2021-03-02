@@ -13,10 +13,33 @@ import cloudIcon from '../../../assets/icon/cloudIcon.png';
 import styles from './styles';
 import info from '../../utils/info';
 import getWeather from '../../utils/getWeather';
+import NetInfo from '@react-native-community/netinfo';
 
 function Landing() {
 
     const [weatherTxt, setWeatherTxt] = useState('atualizando...');
+    const [statusTxt, setStatusTxt] = useState('conectando...');
+
+    // const unsubscribe = NetInfo.addEventListener(state => {
+    //     // info('connection', `is connected?: ${state.isConnected}`);
+    //     // info('connection', `connection type: ${state.type}`);
+    //     // console.log("Connection type", state.type);
+    //     // console.log("Is connected?", state.isConnected);
+    // });
+
+    NetInfo.fetch().then(state => {
+        // console.log("Connection type", state.type);
+        // console.log("Is connected?", state.isConnected);
+        info('connection', `is connected?: ${state.isConnected}`);
+        info('connection', `connection type: ${state.type}`);
+        if (String(state.isConnected) == 'true') {
+            setStatusTxt("Online");
+            info('connection', "Online");
+        } else {
+            setStatusTxt("Offline");
+            info('connection', "Offline");
+        }
+    });
 
     info('system', 'loading landing page');
 
@@ -56,7 +79,7 @@ function Landing() {
 
                 <View style={styles.statusBlock}>
                     <Text style={styles.statusTextLabel}>Status</Text>
-                    <Text style={styles.statusTextDisplay}>Aguardando...</Text>
+                    <Text style={styles.statusTextDisplay}>{statusTxt}</Text>
                 </View>
 
             </BlurView>

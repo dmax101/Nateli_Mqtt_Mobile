@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
         fontFamily: "NotoSansJP_400Regular",
         fontSize: 18,
         textAlign: "center",
+        marginTop: -20,
     },
     
     bottonBarGroup: {

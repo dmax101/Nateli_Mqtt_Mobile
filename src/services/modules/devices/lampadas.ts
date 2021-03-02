@@ -71,7 +71,7 @@ function lampadas(entities:Object, traits:Object,) {
                                 }, timeout);
                             })
                         } else {
-                            Speak(`Ligando ${device.split(' ')[0]}`);
+                            Speak(`Desligando ${device.split(' ')[0]}`);
                             mqttSend(device.split(' ')[0], 'smarthouse/lampdesligar');
                         }
                     }

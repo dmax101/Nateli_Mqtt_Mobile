@@ -41,7 +41,7 @@ export default function App() {
       MQTTService(`${Date.now()}: Teste de Conexão`,"Status");
     }
 
-    MQTTConnectionTest()
+    //MQTTConnectionTest()
     //updateApp();
   }, []);
 
