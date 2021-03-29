@@ -72,7 +72,7 @@ function lampadas(entities:Object, traits:Object,) {
                             })
                         } else {
                             Speak(`Desligando ${device.split(' ')[0]}`);
-                            mqttSend(device.split(' ')[0], 'smarthouse/lampdesligar');
+                            mqttSend(device.split(' ')[1], 'smarthouse/lampdesligar');
                         }
                     }
                 break;

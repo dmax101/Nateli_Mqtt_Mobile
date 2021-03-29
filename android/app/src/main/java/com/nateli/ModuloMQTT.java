@@ -102,6 +102,7 @@ public class ModuloMQTT extends ReactContextBaseJavaModule {
                     }
                     MqttMessage message = new MqttMessage(encodedPayload);
                     try {
+                        message.setRetained(true);
                         client.publish(topic, message);
                     } catch (MqttException e) {
                         e.printStackTrace();
